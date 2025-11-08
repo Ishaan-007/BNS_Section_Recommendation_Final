@@ -24,7 +24,7 @@ class _PredictPageState extends State<PredictPage> {
       _results = [];
     });
 
-    final url = Uri.parse("https://YOUR_BACKEND_URL/predict");
+    final url = Uri.parse("http://192.168.0.111:8000/predict"); //CHANGE THIS TO YOUR BACKEND URL
     final response = await http.post(
       url,
       headers: {"Content-Type": "application/json"},
