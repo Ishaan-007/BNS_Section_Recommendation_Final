@@ -16,208 +16,270 @@ class _WelcomePageState extends State<WelcomePage> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF1E293B), Color(0xFF334155)],
+            colors: [Color(0xFF0F172A), Color(0xFF1E293B)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
         ),
         child: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: Container(
-                  constraints: const BoxConstraints(maxWidth: 500),
-                  padding: const EdgeInsets.all(32),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Spacer(flex: 2),
+
+                // Logo Section
+                Container(
+                  width: 85,
+                  height: 85,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(18),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 20,
-                        offset: const Offset(0, 4),
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 25,
+                        offset: const Offset(0, 8),
                       ),
                     ],
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      // Logo/Icon
-                      Container(
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF1E40AF),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: const Icon(
-                          Icons.account_balance,
-                          size: 48,
-                          color: Colors.white,
-                        ),
+                  child: const Icon(
+                    Icons.balance,
+                    size: 48,
+                    color: Color(0xFF1E40AF),
+                  ),
+                ),
+
+                const SizedBox(height: 24),
+
+                // App Name
+                const Text(
+                  "LegalLens",
+                  style: TextStyle(
+                    fontFamily: "Garamond",
+                    fontSize: 38,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.white,
+                    letterSpacing: -1.5,
+                    height: 1.2,
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
+                // Tagline
+                const Text(
+                  "Legal Section Intelligence",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: "Garamond",
+                    fontSize: 16,
+                    color: Colors.white70,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 0.5,
+                  ),
+                ),
+
+                const SizedBox(height: 6),
+
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.15),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.2),
+                      width: 1,
+                    ),
+                  ),
+                  child: const Text(
+                    "For Law Enforcement Officers",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                ),
+
+                const Spacer(flex: 2),
+
+                // Features (compact)
+                _FeatureTile(
+                  icon: Icons.speed,
+                  title: "Instant Analysis",
+                  subtitle: "Real-time section recommendations",
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF1E40AF), Color(0xFF3B82F6)],
+                  ),
+                ),
+
+                const SizedBox(height: 12),
+
+                _FeatureTile(
+                  icon: Icons.gavel,
+                  title: "Court-Ready Citations",
+                  subtitle: "Accurate BNS section suggestions",
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF7C3AED), Color(0xFFA78BFA)],
+                  ),
+                ),
+
+                const SizedBox(height: 12),
+
+                _FeatureTile(
+                  icon: Icons.shield,
+                  title: "Secure & Confidential",
+                  subtitle: "End-to-end encrypted processing",
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF059669), Color(0xFF10B981)],
+                  ),
+                ),
+
+                const Spacer(flex: 2),
+
+                // CTA Button
+                Container(
+                  width: double.infinity,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(14),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        blurRadius: 25,
+                        offset: const Offset(0, 10),
                       ),
-
-                      const SizedBox(height: 10),
-
-                      // App Name
-                      const Text(
-                        "LegalLens",
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF1E293B),
-                          letterSpacing: -0.5,
-                        ),
-                      ),
-
-                      const SizedBox(height: 5),
-
-                      // Tagline
-                      Text(
-                        "Legal Section Recommendation System",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey[700],
-                          height: 1.4,
-                        ),
-                      ),
-
-                      const SizedBox(height: 8),
-
-                      Text(
-                        "For Law Enforcement Officers",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[600],
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-
-                      //const SizedBox(height: 32),
-
-                      // Divider
-                      Divider(color: Colors.grey[300], thickness: 1),
-
-                      const SizedBox(height: 14),
-
-                      // Features
-                      _FeatureTile(
-                        icon: Icons.search,
-                        title: "Quick Search",
-                        subtitle: "Instant section recommendations based on case details",
-                      ),
-
-                      const SizedBox(height: 16),
-
-                      _FeatureTile(
-                        icon: Icons.verified_user,
-                        title: "Accurate Results",
-                        subtitle: "Court-ready legal section suggestions",
-                      ),
-
-                      const SizedBox(height: 16),
-
-                      _FeatureTile(
-                        icon: Icons.lock_outline,
-                        title: "Secure & Confidential",
-                        subtitle: "All data processed securely",
-                      ),
-
-                      const SizedBox(height: 20),
-
-                      // CTA Button
-                      SizedBox(
-                        width: double.infinity,
-                        height: 54,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const HomePage()),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF1E40AF),
-                            foregroundColor: Colors.white,
-                            elevation: 2,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          child: const Text(
-                            "Get Started",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: 0.5,
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      //const SizedBox(height: 5),
-
-                      // About Button
-                      TextButton(
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (ctx) => AlertDialog(
-                              title: const Text("About LegalLens"),
-                              content: const Text(
-                                "LegalLens assists law enforcement officers in identifying relevant BNS (Bharatiya Nyaya Sanhita) sections based on case descriptions. Enter case details to receive accurate legal section recommendations with similarity scores.",
-                              ),
-                              actions: [
-                                TextButton(
-                                  onPressed: () => Navigator.pop(ctx),
-                                  child: const Text("Close"),
-                                )
-                              ],
-                            ),
-                          );
-                        },
-                        child: Text(
-                          "Learn More",
-                          style: TextStyle(
-                            color: Colors.grey[700],
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-
-                      //const SizedBox(height: 5),
-
-                      // Footer Note
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[100],
-                          borderRadius: BorderRadius.circular(8),
-                        ),
+                    ],
+                  ),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const HomePage()),
+                        );
+                      },
+                      borderRadius: BorderRadius.circular(14),
+                      child: const Center(
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.info_outline, size: 16, color: Colors.grey[600]),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Text(
-                                "For official use only. Verify all recommendations with legal counsel.",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.grey[700],
-                                  height: 1.3,
-                                ),
+                            Text(
+                              "Begin Analysis",
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFF1E40AF),
+                                letterSpacing: 0.5,
                               ),
                             ),
+                            SizedBox(width: 10),
+                            Icon(Icons.arrow_forward, color: Color(0xFF1E40AF), size: 20),
                           ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 12),
+
+                // About Button
+                TextButton.icon(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        title: Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF1E40AF).withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: const Icon(
+                                Icons.info_outline,
+                                color: Color(0xFF1E40AF),
+                                size: 24,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            const Text("About LegalLens"),
+                          ],
+                        ),
+                        content: const Text(
+                          "LegalLens is an AI-powered legal intelligence system designed to assist law enforcement officers in identifying relevant BNS (Bharatiya Nyaya Sanhita) sections.\n\nSimply enter case descriptions to receive accurate legal section recommendations with similarity scores and contextual analysis.",
+                          style: TextStyle(height: 1.5),
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(ctx),
+                            child: const Text(
+                              "Close",
+                              style: TextStyle(
+                                color: Color(0xFF1E40AF),
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.help_outline, size: 16, color: Colors.white60),
+                  label: const Text(
+                    "Learn More",
+                    style: TextStyle(
+                      color: Colors.white60,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+
+                const Spacer(flex: 1),
+
+                // Footer Note (compact)
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.08),
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.15),
+                      width: 1,
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.info_outline, size: 16, color: Colors.white.withOpacity(0.7)),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          "Verify recommendations with legal counsel before filing.",
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: Colors.white.withOpacity(0.8),
+                            height: 1.3,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-              ),
+
+                const SizedBox(height: 24),
+              ],
             ),
           ),
         ),
@@ -226,62 +288,83 @@ class _WelcomePageState extends State<WelcomePage> {
   }
 }
 
-// Feature tile widget
+// Compact Feature tile widget
 class _FeatureTile extends StatelessWidget {
   final IconData icon;
   final String title;
   final String subtitle;
+  final Gradient gradient;
 
   const _FeatureTile({
     required this.icon,
     required this.title,
     required this.subtitle,
+    required this.gradient,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: 44,
-          height: 44,
-          decoration: BoxDecoration(
-            color: const Color(0xFF1E40AF).withOpacity(0.1),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Icon(
-            icon,
-            color: const Color(0xFF1E40AF),
-            size: 22,
-          ),
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.08),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: Colors.white.withOpacity(0.15),
+          width: 1,
         ),
-        const SizedBox(width: 14),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xFF1E293B),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              gradient: gradient,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  blurRadius: 8,
+                  offset: const Offset(0, 3),
                 ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                subtitle,
-                style: TextStyle(
-                  fontSize: 13,
-                  color: Colors.grey[600],
-                  height: 1.3,
-                ),
-              ),
-            ],
+              ],
+            ),
+            child: Icon(
+              icon,
+              color: Colors.white,
+              size: 22,
+            ),
           ),
-        ),
-      ],
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                    height: 1.2,
+                  ),
+                ),
+                const SizedBox(height: 3),
+                Text(
+                  subtitle,
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    color: Colors.white.withOpacity(0.7),
+                    height: 1.3,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
