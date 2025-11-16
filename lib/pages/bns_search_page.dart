@@ -581,8 +581,9 @@ class _SectionDetailSheet extends StatelessWidget {
                       ),
                       const SizedBox(height: 24),
                       // Description Section
+                      // Summarized Description
                       const Text(
-                        "Description",
+                        "Summarized Description",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
@@ -608,6 +609,38 @@ class _SectionDetailSheet extends StatelessWidget {
                           ),
                         ),
                       ),
+
+                      const SizedBox(height: 24),
+
+                      // Original Description
+                      const Text(
+                        "Description",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.06),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: Colors.white.withOpacity(0.12),
+                          ),
+                        ),
+                        child: Text(
+                          section.description,
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.85),
+                            fontSize: 14,
+                            height: 1.6,
+                          ),
+                        ),
+                      ),
+
                       const SizedBox(height: 30),
                     ],
                   ),
