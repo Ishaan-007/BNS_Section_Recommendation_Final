@@ -17,7 +17,7 @@ class _PredictPageState extends State<PredictPage> {
   List<dynamic> _results = [];
   double _topK = 3;
 
-  final String backendUrl = "http://192.168.0.111:8000/predict";
+  final String backendUrl = "http://192.168.57.36:8000/predict";
 
   @override
   void dispose() {
