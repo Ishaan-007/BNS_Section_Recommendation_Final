@@ -11,6 +11,13 @@ class BnsService {
     final csvString = await rootBundle.loadString(
       'assets/data/bns_sections.csv',
     );
+    
+    rootBundle.loadString("assets/data/bns_sections.csv").then((text) {
+      print("CSV loaded successfully. Length: ${text.length}");
+    }).catchError((e) {
+      print("ERROR: $e");
+    });
+
 
     // Use proper CSV parsing with field delimiter and text delimiter
     final rows = const CsvToListConverter(
