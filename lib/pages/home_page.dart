@@ -142,7 +142,9 @@ class HomePage extends StatelessWidget {
                         onTap: () {
                           // Navigator.pushNamed(context, '/case_management');
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Case Management - Coming Soon')),
+                            const SnackBar(
+                              content: Text('Case Management - Coming Soon'),
+                            ),
                           );
                         },
                       ),
@@ -157,10 +159,10 @@ class HomePage extends StatelessWidget {
                           colors: [Color(0xFFDB2777), Color(0xFFF472B6)],
                         ),
                         onTap: () {
-                          // Navigator.pushNamed(context, '/bns_reference');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('BNS Reference - Coming Soon')),
-                          );
+                          Navigator.pushNamed(context, '/bns_search');
+                          //ScaffoldMessenger.of(context).showSnackBar(
+                          //  const SnackBar(content: Text('BNS Reference - Coming Soon')),
+                          //);
                         },
                       ),
 
@@ -229,8 +231,12 @@ class HomePage extends StatelessWidget {
                                         Container(
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFF1E40AF).withOpacity(0.1),
-                                            borderRadius: BorderRadius.circular(8),
+                                            color: const Color(
+                                              0xFF1E40AF,
+                                            ).withOpacity(0.1),
+                                            borderRadius: BorderRadius.circular(
+                                              8,
+                                            ),
                                           ),
                                           child: const Icon(
                                             Icons.info_outline,
@@ -256,7 +262,7 @@ class HomePage extends StatelessWidget {
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                      )
+                                      ),
                                     ],
                                   ),
                                 );
@@ -313,10 +319,7 @@ class _ActionCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.08),
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              color: Colors.white.withOpacity(0.15),
-              width: 1,
-            ),
+            border: Border.all(color: Colors.white.withOpacity(0.15), width: 1),
           ),
           child: Row(
             children: [
@@ -334,11 +337,7 @@ class _ActionCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: Icon(
-                  icon,
-                  color: Colors.white,
-                  size: 28,
-                ),
+                child: Icon(icon, color: Colors.white, size: 28),
               ),
               const SizedBox(width: 18),
               Expanded(
