@@ -21,6 +21,7 @@ class BnsService {
 
     // Use proper CSV parsing with field delimiter and text delimiter
     final rows = const CsvToListConverter(
+      allowInvalid: true,
       shouldParseNumbers: false, // Keep as strings to avoid parsing issues
       eol: '\n',
     ).convert(csvString);
