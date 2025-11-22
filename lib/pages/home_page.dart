@@ -140,12 +140,12 @@ class HomePage extends StatelessWidget {
                           colors: [Color(0xFF7C3AED), Color(0xFFA78BFA)],
                         ),
                         onTap: () {
-                          // Navigator.pushNamed(context, '/case_management');
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Case Management - Coming Soon'),
-                            ),
-                          );
+                          Navigator.pushNamed(context, '/case_management_page');
+                          // ScaffoldMessenger.of(context).showSnackBar(
+                          //   const SnackBar(
+                          //     content: Text('Case Management - Coming Soon'),
+                          //   ),
+                          // );
                         },
                       ),
 
