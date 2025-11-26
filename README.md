@@ -23,7 +23,7 @@ This repository combines the **frontend** and **backend** of the BNS Section Rec
 
 1. **Set your Groq API key** (PowerShell example):
 
-```powershell
+powershell
 $env:GROQ_API_KEY = [YOUR_GROQ_API_KEY]
 
 2. Run the backend server
