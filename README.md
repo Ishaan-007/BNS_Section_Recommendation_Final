@@ -75,7 +75,3 @@ This will launch the frontend app (on emulator or connected device).
 - You can develop and test the frontend and backend independently.
 
 ---
-
-## 📜 License
-
-[MIT License](LICENSE) (or your preferred license)
